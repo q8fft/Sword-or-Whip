@@ -1,0 +1,376 @@
+
+<html>
+  <head>
+    <!-- ye olde google analytices 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-62499817-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/stylesheet4.css" rel="stylesheet" type="text/css"  media="all"  />
+    <title>Sword or Whip - #igavania</title>
+  </head>
+  <body>
+    <div id="mute">
+    </div>
+    <div id="textbox-outer">
+      <div id="textbox-inner">
+        <div id="lord"></div>
+        <div id="lordname">إيغا:</div>
+        <div id="text"></div>
+      </div>
+    </div>
+    <div id="question-outer" style="display:none;">
+      <div id="question-inner">
+        <p id="question-text"></p>
+        <div id="yesno">
+          <a href="index.html#" id="yes" class="btn">Yes</a>
+          <a href="index.html#" id="no" class="btn">No</a>
+        </div>
+      </div>
+    </div>
+    <h1 id="clan">شكرا للعب!</h1>
+    <div id="main">
+      <div id="throne"></div>
+      <div id="stand" class="sword"></div>
+      <div id="stand" class="whip"></div>
+      <a id="igastanding" href="https://www.kickstarter.com/projects/iga/bloodstained-ritual-of-the-night/posts/1258115"></a>
+      <a id="katana" class="updown" href="https://www.kickstarter.com/projects/iga/bloodstained-ritual-of-the-night/posts/1258115"></a>
+    </div>
+    <h2 id="clan">عد إلى موقع كيك ستارتر: <a href="http://igavania.com" style="color:white;">igavania.com</a></h2>
+    <h2 id="clan" style="color:#444;font-size:16px">Created by <a href="http://www.fangamer.com" style="color:#444;">Fangamer</a> | editor to Arabic q8fft</h2>
+    
+    <script>
+    (function (global, undefined) {
+    'use strict';
+
+    var factory = function (window) {
+        if (typeof window.document !== 'object') {
+            throw new Error('Cookies.js requires a `window` with a `document` object');
+        }
+
+        var Cookies = function (key, value, options) {
+            return arguments.length === 1 ?
+                Cookies.get(key) : Cookies.set(key, value, options);
+        };
+
+        // Allows for setter injection in unit tests
+        Cookies._document = window.document;
+
+        // Used to ensure cookie keys do not collide with
+        // built-in `Object` properties
+        Cookies._cacheKeyPrefix = 'cookey.'; // Hurr hurr, :)
+        
+        Cookies._maxExpireDate = new Date('Fri, 31 Dec 9999 23:59:59 UTC');
+
+        Cookies.defaults = {
+            path: '/',
+            secure: false
+        };
+
+        Cookies.get = function (key) {
+            if (Cookies._cachedDocumentCookie !== Cookies._document.cookie) {
+                Cookies._renewCache();
+            }
+
+            return Cookies._cache[Cookies._cacheKeyPrefix + key];
+        };
+
+        Cookies.set = function (key, value, options) {
+            options = Cookies._getExtendedOptions(options);
+            options.expires = Cookies._getExpiresDate(value === undefined ? -1 : options.expires);
+
+            Cookies._document.cookie = Cookies._generateCookieString(key, value, options);
+
+            return Cookies;
+        };
+
+        Cookies.expire = function (key, options) {
+            return Cookies.set(key, undefined, options);
+        };
+
+        Cookies._getExtendedOptions = function (options) {
+            return {
+                path: options && options.path || Cookies.defaults.path,
+                domain: options && options.domain || Cookies.defaults.domain,
+                expires: options && options.expires || Cookies.defaults.expires,
+                secure: options && options.secure !== undefined ?  options.secure : Cookies.defaults.secure
+            };
+        };
+
+        Cookies._isValidDate = function (date) {
+            return Object.prototype.toString.call(date) === '[object Date]' && !isNaN(date.getTime());
+        };
+
+        Cookies._getExpiresDate = function (expires, now) {
+            now = now || new Date();
+
+            if (typeof expires === 'number') {
+                expires = expires === Infinity ?
+                    Cookies._maxExpireDate : new Date(now.getTime() + expires * 1000);
+            } else if (typeof expires === 'string') {
+                expires = new Date(expires);
+            }
+
+            if (expires && !Cookies._isValidDate(expires)) {
+                throw new Error('`expires` parameter cannot be converted to a valid Date instance');
+            }
+
+            return expires;
+        };
+
+        Cookies._generateCookieString = function (key, value, options) {
+            key = key.replace(/[^#$&+\^`|]/g, encodeURIComponent);
+            key = key.replace(/\(/g, '%28').replace(/\)/g, '%29');
+            value = (value + '').replace(/[^!#$&-+\--:<-\[\]-~]/g, encodeURIComponent);
+            options = options || {};
+
+            var cookieString = key + '=' + value;
+            cookieString += options.path ? ';path=' + options.path : '';
+            cookieString += options.domain ? ';domain=' + options.domain : '';
+            cookieString += options.expires ? ';expires=' + options.expires.toUTCString() : '';
+            cookieString += options.secure ? ';secure' : '';
+
+            return cookieString;
+        };
+
+        Cookies._getCacheFromString = function (documentCookie) {
+            var cookieCache = {};
+            var cookiesArray = documentCookie ? documentCookie.split('; ') : [];
+
+            for (var i = 0; i < cookiesArray.length; i++) {
+                var cookieKvp = Cookies._getKeyValuePairFromCookieString(cookiesArray[i]);
+
+                if (cookieCache[Cookies._cacheKeyPrefix + cookieKvp.key] === undefined) {
+                    cookieCache[Cookies._cacheKeyPrefix + cookieKvp.key] = cookieKvp.value;
+                }
+            }
+
+            return cookieCache;
+        };
+
+        Cookies._getKeyValuePairFromCookieString = function (cookieString) {
+            // "=" is a valid character in a cookie value according to RFC6265, so cannot `split('=')`
+            var separatorIndex = cookieString.indexOf('=');
+
+            // IE omits the "=" when the cookie value is an empty string
+            separatorIndex = separatorIndex < 0 ? cookieString.length : separatorIndex;
+
+            return {
+                key: decodeURIComponent(cookieString.substr(0, separatorIndex)),
+                value: decodeURIComponent(cookieString.substr(separatorIndex + 1))
+            };
+        };
+
+        Cookies._renewCache = function () {
+            Cookies._cache = Cookies._getCacheFromString(Cookies._document.cookie);
+            Cookies._cachedDocumentCookie = Cookies._document.cookie;
+        };
+
+        Cookies._areEnabled = function () {
+            var testKey = 'cookies.js';
+            var areEnabled = Cookies.set(testKey, 1).get(testKey) === '1';
+            Cookies.expire(testKey);
+            return areEnabled;
+        };
+
+        Cookies.enabled = Cookies._areEnabled();
+
+        return Cookies;
+    };
+
+    var cookiesExport = typeof global.document === 'object' ? factory(global) : factory;
+
+    // AMD support
+    if (typeof define === 'function' && define.amd) {
+        define(function () { return cookiesExport; });
+    // CommonJS/Node.js support
+    } else if (typeof exports === 'object') {
+        // Support Node.js specific `module.exports` (which can be a function)
+        if (typeof module === 'object' && typeof module.exports === 'object') {
+            exports = module.exports = cookiesExport;
+        }
+        // But always support CommonJS module 1.1.1 spec (`exports` cannot be a function)
+        exports.Cookies = cookiesExport;
+    } else {
+        global.Cookies = cookiesExport;
+    }
+})(typeof window === 'undefined' ? this : window);
+    var muted = Cookies.get('sorwmuted') == '1';
+      if (muted){
+        document.getElementById('mute').className = "muted"
+      }
+
+      if (window.navigator.userAgent.match(/iPad/i) || window.navigator.userAgent.match(/iPhone/i)) {
+        document.getElementById('mute').remove();
+        var beep = function(){};
+      }
+      else {
+        var request = new XMLHttpRequest();
+        request.open('GET', "/assets/audio/text.wav", true);
+        request.responseType = 'arraybuffer';
+
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        var context = new AudioContext();
+
+        var text_beep_buffer = null;
+        // Decode asynchronously
+        request.onload = function() {
+          context.decodeAudioData(request.response, function(buffer) {
+            text_beep_buffer = buffer;
+          }, function(){});
+        }
+        //request.send();
+
+        var beep = function() {
+          // cur_beep = (cur_beep + 1) % num_beeps;
+          // var this_beep = parseInt(cur_beep);
+          // text_beeps[this_beep].play();
+          // setTimeout(function(){
+          //   text_beeps[this_beep].pause();
+          //   text_beeps[this_beep].currentTime = 0;
+          // },250)
+          // text_beeps.currentTime = 0;
+          // text_beeps[0].play();
+          if (!text_beep_buffer)
+            return;
+          var source = context.createBufferSource();
+          source.buffer = text_beep_buffer;
+          source.connect(context.destination);
+          if (!muted)
+            source.start(0);
+        }
+      }
+    var textTimeout = null;
+      var in_process_saying = false;
+      var text_queue = [];
+      var clear_next_time = false;
+      var showtext = function(text) {
+        if (in_process_saying) {
+          text_queue.push(text)
+          return;
+        }
+        //if (textTimeout)
+          //clearTimeout(textTimeout);
+        var pos = 0;
+        var textInterval = function() {
+          if (pos == 0)
+            document.getElementById("text").innerHTML = "";
+          if (clear_next_time) {
+            clear_next_time = false;
+            document.getElementById("text").innerHTML = "";
+          }
+          in_process_saying = true;
+          var next_update = 25;
+          if (document.hasFocus())
+            beep(); // beep only if we are the focused window
+          document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + text[pos]
+
+          pos++;
+          var check_next_text = true;
+          var command = ""
+          var in_command = false;
+          while(check_next_text) {
+            if (in_command && text[pos] == "}") {
+              var in_command = false;
+              pos++;
+              //console.log(command)
+              var match;
+
+              if (match = command.match(/^sleep:(.+?)$/)) {
+                next_update = parseFloat(match[1]) * 1000;
+              }
+              else if (match = command.match(/^break$/)) {
+                clear_next_time = true;
+              }
+              else if (match = command.match(/^nl$/)) {
+                document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + "<br>"
+              }
+              else if (console && console.log) {
+                console.log("Unknown Command: "+command)
+              }
+
+              continue;
+            }
+            if (in_command) {
+              command = command + text[pos];
+              pos++;
+              continue;
+            }
+            if (text[pos] == " ") {
+              document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + text[pos]
+              pos++;
+              continue;
+            }
+
+            if (text[pos] == "{") {
+              var command = ""
+              in_command = true;
+              pos++;
+              continue;
+            }
+
+            if (document.hasFocus()) {
+              check_next_text = false
+              continue;
+            }
+
+            // if we are not in focus, then immediately post the numbers
+            if (pos >= text.length) {
+              check_next_text = false
+              next_update = 100;
+            }
+            else {
+              document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + text[pos]
+              pos++;
+              check_next_text = true
+            }
+          }
+
+          if (pos >= text.length) {
+            // min 2 second wait for each say
+            if (next_update < 2000 && document.hasFocus())
+              next_update = 2000;
+            // this timeout in a timeout is goofy, but it ensures the minimum on screen time is 2 seconds
+            textTimeout = setTimeout(function(){
+              if (text_queue.length == 0) {
+                in_process_saying = false
+                return;
+              }
+              else {
+                text = text_queue.shift();
+                pos = 0;
+                textTimeout = setTimeout(textInterval,0) // schedule immedately since we waited already
+              }
+            },next_update)
+          }
+          else {
+            textTimeout = setTimeout(textInterval,next_update)
+          }
+        }
+        textInterval();
+      }
+      showtext("لقد اخترت سلاحك.{sleep:0.75} الآن أثبت بأنك جدير بذلك.")
+
+      document.getElementById('mute').onclick = function(e) {
+        e.preventDefault();
+        if (muted) {
+          muted = false;
+          Cookies.set('sorwmuted','0',{expires:'Fri, 31 Dec 2020 23:59:59 UTC'})
+          e.target.className = "";
+        }
+        else {
+          muted = true;
+          Cookies.set('sorwmuted','1',{expires:'Fri, 31 Dec 2020 23:59:59 UTC'})
+          e.target.className = "muted"
+        }
+      }
+    </script>
+  </body>
+</html>

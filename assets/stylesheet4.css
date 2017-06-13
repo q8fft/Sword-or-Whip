@@ -1,0 +1,498 @@
+@font-face
+{
+    font-family: 'Alagard';font-weight: normal;font-style: normal;src: url('../assets/fonts/alagard-webfont.eot');src: url('fonts/alagard-webfont.eot') format('embedded-opentype'),url('fonts/alagard-webfont.woff2') format('woff2'),url('fonts/alagard-webfont.woff') format('woff'),url('fonts/alagard-webfont.ttf') format('truetype'),url('fonts/alagard-webfont.svg') format('svg');
+}html
+{
+    box-sizing: border-box;
+	
+}*,
+*:before,
+*:after
+{
+    box-sizing: inherit;
+}h1,
+h2,
+#lordname,
+#text,
+#items,
+#tweet textarea,
+#tweet input[type=submit],
+a.btn,
+#question-inner p,
+#swordplus,
+#whipplus,
+#swordminus,
+#whipminus
+{font-family: 'Alagard','Helvetica Neue',helvetica,arial;font-size: 32px;
+    font-weight: normal;letter-spacing: 0;-webkit-font-smoothing: none;-moz-osx-font-smoothing: grayscale;
+}body
+{
+    padding: 15px;color: white;background-color: black;
+}ul
+{margin: 0;padding: 0;
+
+    list-style: none;
+}ul li
+{
+    line-height: 1.4;
+}#items
+{font-size: 16px;
+
+    width: 576px;margin: 20px auto 0;
+}#items li
+{
+    display: inline-block;width: 96px;margin-bottom: 20px;text-align: center;
+}#items a
+{
+    cursor: pointer;text-decoration: underline;
+}#textbox-outer,
+#question-outer
+{width: 580px;margin-left: auto;margin-right: auto;
+    padding: 10px;border: 2px solid #0000a0;
+}#textbox-inner,
+#question-inner
+{position: relative;height: 200px;
+
+    background-color: #005;background-image: linear-gradient(to bottom,#000090 0%,#000090 5%,#00008c 5%,#00008c 10%,#008 10%,#008 15%,#000084 15%,#000084 20%,#000080 20%,#000080 25%,#00007c 25%,#00007c 30%,#000078 30%,#000078 35%,#000074 35%,#000074 40%,#000070 40%,#000070 45%,#00006c 45%,#00006c 50%,#000068 50%,#000068 55%,#000064 55%,#000064 60%,#000060 60%,#000060 65%,#00005c 65%,#00005c 70%,#000058 70%,#000058 75%,#000054 75%,#000054 80%,#000050 80%,#000050 85%,#00004c 85%,#00004c 90%,#000048 90%,#000048 95%,#004 95%,#004 100%      );
+}#lord
+{position: absolute;top: 25px;right: 10px;width: 132px;height: 150px;
+
+    background: url('../images/lord.png') no-repeat;
+}@media         only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)
+{
+    #lord
+    {
+        background-image: url('images/lord@2x.png');background-size: 132px 150px;
+    }
+}#lordname
+{
+    position: absolute;top: 10px;right: 152px;
+	direction: rtl;
+}#text
+{
+    position: absolute;top: 50px;right: 157px;width: 393px;
+	direction: rtl;
+}#main
+{position: relative;width: 500px;height: 320px;margin-top: 50px;margin-left: auto;
+    margin-right: auto;
+}#clan + #main
+{
+    margin-top: 20px;
+}#runes
+{position: absolute;z-index: -10;top: -32px;right: 171px;width: 158px;height: 158px;opacity: .15;
+    background: url('images/runes.png') no-repeat;
+}#throne
+{position: absolute;top: 0;right: 179px;width: 142px;height: 226px;opacity: .5;
+    background: url('../images/throne_empty.png') no-repeat;
+}#igastanding
+{position: absolute;z-index: 10;top: 50px;right: 195px;display: block;width: 212px;height: 262px;border: none;
+    background: url('../images/igastanding.png') no-repeat;
+}#katana
+{position: absolute;z-index: 10;top: 50px;right: 135px;display: block;width: 44px;height: 170px;border: none;
+    background: url('../images/katana.png') no-repeat;
+}@media         only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)
+{
+    #throne
+    {
+        background-image: url('images/throne_empty@2x.png');background-size: 142px 226px;
+    }#igastanding
+    {
+        background-image: url('images/igastanding@2x.png');background-size: 212px 262px;
+    }#katana
+    {
+        background-image: url('images/katana@2x.png');background-size: 44px 170px;
+    }
+}#stand
+{position: absolute;top: 200px;width: 76px;height: 80px;opacity: .5;
+    background: url('../images/stand.png') no-repeat;
+}@media         only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)
+{
+    #stand
+    {
+        background-image: url('images/stand@2x.png');background-size: 76px 80px;
+    }
+}#stand.sword
+{
+    right: 50px;
+}#stand.whip
+{
+    right: 374px;
+}#sword
+{
+    position: absolute;z-index: 10;top: 120px;right: 45px;width: 90px;height: 90px;
+}#whip
+{
+    position: absolute;z-index: 10;top: 120px;right: 368px;width: 90px;height: 90px;
+}#swordicon
+{position: absolute;top: 118px;right: 52px;
+
+    width: 76px;height: 66px;
+}#swordcontainer
+{position: absolute;top: 0;right: 0;
+
+    width: 76px;height: 66px;
+}#swordgfx
+{position: absolute;top: 0;right: 0;width: 76px;height: 66px;
+
+    background: url('images/sword.png') no-repeat;
+}#swordsparkle
+{width: 76px;height: 66px;
+
+    background: url('images/swordsp.gif') no-repeat;
+}#swordplus,
+#whipplus,
+#swordminus,
+#whipminus
+{
+    position: absolute;top: -50px;text-align: center;opacity: .75;
+}#swordplus,
+#whipplus
+{
+    color: #0c0;
+}#swordminus,
+#whipminus
+{
+    color: #c00;
+}#swordplus,
+#swordminus
+{
+    width: 76px;
+}@media         only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)
+{
+    #swordgfx
+    {
+        background-image: url('images/sword@2x.png');background-size: 72px 62px;
+    }
+}#whipicon
+{position: absolute;top: 116px;right: 374px;
+
+    width: 78px;height: 64px;
+}#whipcontainer
+{position: absolute;top: 0;right: 0;
+
+    width: 78px;height: 64px;
+}#whipplus,
+#whipminus
+{
+    width: 78px;
+}#whipgfx
+{position: absolute;top: 0;right: 0;width: 78px;height: 64px;
+
+    background: url('images/whip.png') no-repeat;
+}#whipsparkle
+{width: 78px;height: 64px;
+
+    background: url('images/whipsp.gif') no-repeat;
+}@media         only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)
+{
+    #whipgfx
+    {
+        background-image: url('images/whip@2x.png');background-size: 74px 60px;
+    }
+}.updown
+{-webkit-transform-origin: 50% 50%                                                                                                ;transform-origin: 50% 50%;-webkit-animation: animationFrames steps(5,end) 1s;
+    animation: animationFrames steps(5,end) 1s;-webkit-animation-iteration-count: infinite;animation-iteration-count: infinite;
+}@keyframes animationFrames
+{
+    0%
+    {
+        transform: translate(0px,0px);
+    }50%
+    {
+        transform: translate(0px,10px);
+    }100%
+    {
+        transform: translate(0px,0px);
+    }
+}@-webkit-keyframes animationFrames
+{
+    0%
+    {
+        -webkit-transform: translate(0px,0px);
+    }50%
+    {
+        -webkit-transform: translate(0px,10px);
+    }100%
+    {
+        -webkit-transform: translate(0px,0px);
+    }
+}#clan
+{margin: 20px 0;
+direction: rtl;
+
+    text-align: center;
+}#textbox-outer + #question-outer
+{
+    margin-top: 20px;margin-bottom: 20px;
+}#question-inner p
+{
+    width: 66%;margin: 0 auto;padding-top: 10px;text-align: center;
+}#yesno
+{position: relative;
+
+    width: 66%;margin: 30px auto 0;
+}#yesno .btn
+{
+    position: absolute;top: 0;
+}#yes
+{
+    right: 0;
+}#no
+{
+    left: 0;
+}#mute
+{
+    width: 580px;height: 24px;margin: 0 auto 10px;cursor: pointer;background: url('../images/playing.png') no-repeat;
+}#mute.muted
+{
+    background: url('images/muted.png') no-repeat;
+}@media         only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)
+{
+    #mute
+    {
+        background-image: url('images/playing@2x.png');background-size: 30px 24px;
+    }#mute.muted
+    {
+        background-image: url('images/muted@2x.png');background-size: 30px 24px;
+    }
+}#embed
+{
+    width: 576px;height: 324px;margin: 20px auto;
+}iframe
+{
+    width: 576px;height: 324px;
+}@media screen and (max-width: 320px)
+{
+    body
+    {
+        margin: 0;padding: 5px;
+    }
+}@media screen and (max-width: 719px)
+{
+    #mute
+    {
+        width: 310px;
+    }#textbox-outer,
+    #question-outer
+    {
+        width: 310px;
+    }#textbox-inner,
+    #question-inner
+    {
+        height: 100px;
+    }#lord
+    {
+        top: 15px;right: 0;width: 66px;height: 75px;background-size: 66px 75px;
+    }#text
+    {font-size: 16px;
+
+        top: 30px;right: 68px;width: 215px;
+    }#question-inner
+    {
+        height: 110px;
+    }#question-inner p
+    {
+        font-size: 16px;
+    }#yesno .btn
+    {margin: 0;
+        padding: 8px;
+    }#lordname
+    {font-size: 16px;
+
+        right: 68px;
+    }@media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx)
+    {
+        #lord
+        {
+            background-size: 66px 75px;
+        }
+    }
+
+    #embed
+    {
+        width: 288px;
+        height: 162px;
+        margin: 20px auto;
+    }
+
+    iframe
+    {
+        width: 288px;
+        height: 162px;
+    }
+
+    #main
+    {
+        width: 300px;
+    }
+
+    #runes
+    {
+        top: -32px;
+        right: 71px;
+    }
+
+    #throne
+    {
+        right: 79px;
+    }
+
+    #stand.sword
+    {
+        right: 0; /*diff: -50*/
+    }
+
+    #stand.whip
+    {
+        right: 224px; /*diff: -150*/
+    }
+
+    #sword
+    {
+        right: -5px; /*orig: 45;*/
+    }
+
+    #whip
+    {
+        right: 218px; /*orig: 368;*/
+    }
+
+    #swordicon
+    {
+        right: 4px; /*orig: 54*/
+    }
+
+    #whipicon
+    {
+        right: 228px; /* orig: 378px;*/
+    }
+
+    #items
+    {
+        width: 288px;
+    }
+
+    #igastanding
+    {
+        right: 88px;
+    }
+    #katana
+    {
+        right: 35px;
+    }
+}
+#tweet,
+#facebook
+{
+    width: 300px;
+    margin: 20px auto;
+}
+#tweet textarea
+{
+    font-size: 16px;
+
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+
+    color: white;
+    border: none;
+    border-radius: 0;
+    background: linear-gradient(to bottom,
+    #000090 0%, #000090 5%,
+    #00008c 5%, #00008c 10%,
+    #008 10%, #008 15%,
+    #000084 15%, #000084 20%,
+    #000080 20%, #000080 25%,
+    #00007c 25%, #00007c 30%,
+    #000078 30%, #000078 35%,
+    #000074 35%, #000074 40%,
+    #000070 40%, #000070 45%,
+    #00006c 45%, #00006c 50%,
+    #000068 50%, #000068 55%,
+    #000064 55%, #000064 60%,
+    #000060 60%, #000060 65%,
+    #00005c 65%, #00005c 70%,
+    #000058 70%, #000058 75%,
+    #000054 75%, #000054 80%,
+    #000050 80%, #000050 85%,
+    #00004c 85%, #00004c 90%,
+    #000048 90%, #000048 95%,
+    #004 95%, #004 100%
+    );
+}
+
+#tweet input[type=submit],
+a.btn
+{
+    font-size: 16px;
+
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 10px;
+    padding: 10px 20px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    color: white;
+    border: none;
+    background: linear-gradient(to bottom,
+    #909090 0%, #909090 5%,
+    #8c8c8c 5%, #8c8c8c 10%,
+    #888 10%, #888 15%,
+    #848484 15%, #848484 20%,
+    #808080 20%, #808080 25%,
+    #7c7c7c 25%, #7c7c7c 30%,
+    #787878 30%, #787878 35%,
+    #747474 35%, #747474 40%,
+    #707070 40%, #707070 45%,
+    #6c6c6c 45%, #6c6c6c 50%,
+    #686868 50%, #686868 55%,
+    #646464 55%, #646464 60%,
+    #606060 60%, #606060 65%,
+    #5c5c5c 65%, #5c5c5c 70%,
+    #585858 70%, #585858 75%,
+    #545454 75%, #545454 80%,
+    #505050 80%, #505050 85%,
+    #4c4c4c 85%, #4c4c4c 90%,
+    #484848 90%, #484848 95%,
+    #444 95%, #444 100%
+    );
+}
