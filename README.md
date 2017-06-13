@@ -1,6 +1,6 @@
 # Sword-or-Whip
 
-Sword or Whip - #igavania RTL page
+Sword or Whip - #igavania Arabic RTL page
 
 An example is here
 
